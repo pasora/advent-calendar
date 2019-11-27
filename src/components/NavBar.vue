@@ -4,6 +4,7 @@
 
     <b-navbar-nav class="ml-auto">
       <b-nav-item-dropdown v-if="userStatus" :text="user.email">
+        <b-dropdown-item to="/profile">Profile</b-dropdown-item>
         <b-dropdown-item to="/logout">Log out</b-dropdown-item>
       </b-nav-item-dropdown>
       <b-nav-item v-else to="/login">Log in</b-nav-item>

@@ -9,9 +9,6 @@
       </b-form-group>
       <b-button block @click="emailLogin">Log in</b-button>
     </b-form>
-    <b-form class="my-2">
-      <b-button block @click="googleLogin">Log in with Google</b-button>
-    </b-form>
   </b-container>
 </template>
 
@@ -20,7 +17,7 @@ import firebase from '../firebase'
 import store from '../store';
 
 export default {
-  name: 'login',
+  name: 'profile',
   data() {
     return {
       email: '',
@@ -35,10 +32,7 @@ export default {
   },
   methods: {
     emailLogin() {
-      firebase.emailLogin(this.email, this.password)
-    },
-    googleLogin() {
-      firebase.googleLogin()
+      firebase.updateUser(this.email, this.password)
     }
   }
 };

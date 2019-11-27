@@ -21,10 +21,6 @@ export default {
       store.commit('onError', error);
     })
   },
-  googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
-  },
   logout() {
     firebase.auth().signOut()
   },
@@ -34,6 +30,15 @@ export default {
       store.commit('onAuthStateChanged', user);
       store.commit('onUserStatusChanged', !!user.uid);
     });
+  },
+  updateProfile(user, displayName) {
+    user.updateProfile({
+      displayName: displayName
+    }).then(result => {
+      store.commit('onInfo', result);
+      router.push('/');
+    }).catch(error => {
+      store.commit('onError', error);
+    })
   }
 };
-
