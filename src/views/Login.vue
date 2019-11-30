@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     emailLogin() {
-      firebase.updateUser(this.email, this.password)
+      firebase.emailLogin(this.email, this.password)
     }
   }
 };
