@@ -51,8 +51,6 @@ const router = new VueRouter({
 router.beforeResolve((to, from, next) => {
   if (to.path === "/success") {
     firebase.auth().onAuthStateChanged(user => {
-      // eslint-disable-next-line no-console
-      console.log(user);
       if (user.displayName != null) {
         next()
       } else {
@@ -64,8 +62,6 @@ router.beforeResolve((to, from, next) => {
   }
   if (to.path === "/profile") {
     firebase.auth().onAuthStateChanged(user => {
-      // eslint-disable-next-line no-console
-      console.log(user);
       if (user != null) {
         next()
       } else {

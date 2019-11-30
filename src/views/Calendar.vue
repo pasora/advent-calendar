@@ -176,7 +176,11 @@ export default {
       this.form.like = 0;
       if (this.form.author == null) this.form.author = this.$store.state.user.displayName;
       if (this.form.confidential == null) this.form.confidential = false;
-      this.db.doc(this.form.id).set(this.form);
+      this.db.doc(this.form.id).set(this.form).then(function() {
+        alert('Your post was successfully registered.\nPlease reload to show your new post');
+      }).catch(function(error) {
+        store.commit('onError', error);
+      });
     },
     like(post){
       post.like += 1;
