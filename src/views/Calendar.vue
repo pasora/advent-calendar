@@ -23,7 +23,7 @@
       </b-col>
       <b-col cols="2">{{post.author}}</b-col>
       <b-col cols="2" v-if="isMine(post.uid)">
-        <b-button size="sm" v-b-modal.edit-post>Edit</b-button>
+        <b-button size="sm" v-b-modal.edit-post @click="openModal(post)">Edit</b-button>
       </b-col>
       <b-col cols="2" v-else-if="canInput(post.uid)">
         <b-button size="sm" v-b-modal.edit-post @click="openModal(post)">Entry</b-button>
